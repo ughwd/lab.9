@@ -1,0 +1,16 @@
+import csv
+filename = "data.csv"
+total_cost = 0
+
+with open(filename) as file:
+    reader = csv.reader(file) 
+    next(reader) 
+    print("Нужно купить:")
+    for row in reader: name = row[0] 
+    quantity = int(row[1]) 
+    price = int(row[2]) 
+    cost = quantity * price 
+    print(f"{name} - {quantity} шт. за {cost} руб.")
+    total_cost += cost
+
+print(f"Итоговая сумма: {total_cost} руб.")
